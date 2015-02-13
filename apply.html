@@ -1,0 +1,131 @@
+<!DOCTYPE html >
+<html lang="en" >
+<head>
+    <title>
+      Steve Midkiff Project 4
+    </title>    
+    <meta charset="utf-8" />
+<link rel="stylesheet" href="project2.css">
+<link rel="stylesheet" href="menutable.css">
+
+ <!-- This is where your link tag goes when linking to an external style sheet. -->
+ 
+<!--This is the format you will use when entering JavaScript -->    
+<script type="text/javascript">
+/* <![CDATA[ */
+ function confirmSubmit() {
+    if (document.forms[0].applicationDate.value == ""
+        || document.forms[0].lastName.value == ""
+        || document.forms[0].firstName.value == ""
+        || document.forms[0].telephone.value == ""
+        || document.forms[0].address.value == ""
+        || document.forms[0].city.value == ""
+        || document.forms[0].state.value == ""
+        || document.forms[0].zip.value == "") {
+	window.alert("You must enter your contact information.");
+	return false;
+	}
+
+    
+    else if (document.forms[0].jobTitle.value == "") {
+	window.alert("You must select a position.");
+	return false;
+	}
+
+    var educationSelected = false;
+    for (var i = 0; i < 4; ++i) {
+	if (document.forms[0].education[i].checked == true) {
+	    educationSelected = true;
+	    break;
+	    }
+	}
+    if (educationSelected != true) {
+	window.alert("You must select a level of education.");
+	return false;
+	}
+
+    return true;
+    }
+    
+    function confirmReset() {
+    var resetForm = window.confirm("Are you sure you want to reset the form?");
+    return resetForm;
+    }
+/* ]]> */
+</script>    
+    
+</head>
+
+  <body> 
+ <div> 
+<!-- Your XHTML here -->
+<h1 style="background-image: url(green.jpg)">Come Work For Freddie's!</h1>
+    
+<div id="links"><strong>
+<a href="project4.html">Home</a> &nbsp;&nbsp;
+<a href="menupage.html">Menu</a> &nbsp;&nbsp;
+<a href="apply.html">Application</a></strong></div>
+<br />
+
+<form action="appProcessor.htm" method="get" enctype="application/x-www-form-urlencoded" onsubmit = "return confirmSubmit();" onreset = "return confirmReset();">
+                    <table>
+                      <tr>
+                        <td>
+                          <h3>Application Date</h3>
+                          <p>
+                            <input type="text" name="applicationDate" /></p>
+                          <h3>Contact Information</h3>
+                          Last name<br />
+                          <input type="text" name="lastName" size="40" /><br />
+                          First name<br /> 
+                          <input type="text" name="firstName" size="40" /><br />
+                          Telephone<br />
+                          <input type="text" name="telephone" size="40" /><br />
+                          Address<br />
+                          <input type="text" name="address" size="40" /><br />
+                          City, State, Zip<br />
+                          <input type="text" name="city" size="23" />
+                          <input type="text" name="state" size="2" maxlength="2" />
+                          <input type="text" name="zip" size="5" maxlength="5" /><br />
+                        </td>
+                      </tr>
+
+                          <tr>
+                            <td>
+                                <p>What position are you applying for?</p>
+                                <p><select name = "jobTitle">
+                                <option value = "waitstaff">waitstaff</option>
+                                <option value = "cook">cook</option>
+                                <option value = "host">host</option>
+                                <option value = "bookkeeper">bookkeeper</option>
+                                <option value = "manager">manager</option>
+                                </select></p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><p>Select your level of education reached:</p>
+                                <input type = "radio" name = "education" value = "High School" />High School<br />
+                                <input type = "radio" name = "education" value = "Some College" />Some College<br />
+                                <input type = "radio" name = "education" value = "Bachelors Degree" />Bachelors Degree<br />
+                                <input type = "radio" name = "education" value = "Post Graduate" />Post Graduate<br />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                                <p><input type="submit" value="Submit Application" />&nbsp; <input type = "reset" /></p>
+                            </td>
+                      </tr>
+                    </table>
+                    </form>
+<br />
+<hr />
+<div id="footer"><small><i>Copyright &copy; 2014 Git2Collaborating<br />
+<a href="mailto:Steve@Midkiff.com">Steve@Midkiff.com</a></i></small></div><br /><br />
+
+<!-- external javascript for validation -->  
+<script type="text/javascript" src="../../validation.js">
+</script>    
+
+</div>
+  </body>
+  </html>
